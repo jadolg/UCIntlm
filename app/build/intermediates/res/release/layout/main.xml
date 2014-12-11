@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    tools:context=".UCIntlm" >
+
+    <LinearLayout
+        android:id="@+id/cara_droidBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/texto"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:text="UCIntlm"
+            android:textColor="#FFFFFF"
+            android:textSize="6pt"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/on_offButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:background="@drawable/power_on"
+            android:orientation="vertical"
+            />
+
+<!--         <LinearLayout -->
+<!--             xmlns:android="http://schemas.android.com/apk/res/android" -->
+<!--             android:id="@+id/cara_droid" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_gravity="center_horizontal|center" -->
+<!--             android:background="@drawable/widget_on1" -->
+<!--             android:orientation="vertical" > -->
+<!--         </LinearLayout> -->
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/home/akiel/AndroidStudioProjects/Ucintlmv3/app/src/main/res/layout/main.xml -->

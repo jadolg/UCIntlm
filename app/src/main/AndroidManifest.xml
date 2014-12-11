@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="uci.ucintlm"
+
+    android:versionCode="8"
+    android:versionName="3.5" >
+
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+   
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+	
+    <application
+        
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" 
+        android:description="@string/description"
+        >
+        
+        <activity
+            android:name="uci.ucintlm.ui.Antlm"
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.Dialog"
+            android:configChanges="orientation|screenSize">
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        
+        <receiver
+            android:name="uci.ucintlm.ui.UCIntlmWidget"
+            android:icon="@drawable/widget_on1"
+            android:label="UCIntlm switch" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" />
+        </receiver>
+        
+
+        <service android:name="uci.ucintlm.service.NTLMProxyService"></service>
+    </application>
+
+</manifest>

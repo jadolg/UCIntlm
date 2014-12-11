@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/media/data/android-sdk-linux/extras/android/m2repository/com/android/support/support-v4/18.0.0/support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/build/intermediates/pre-dexed/debug/support-v4-18.0.0-b112193afcd4bc1f3811b12a11ef9743109aaa3c.jar" />
+    </item>
+    <item
+        jar="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/libs/slf4j-api-1.1.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="e7f5fa4bca6fd2d08dc51a6433455bac41a1d5eb">
+        <dex dex="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/build/intermediates/pre-dexed/debug/slf4j-api-1.1.0-b183432031e48c6fac4abe0c34c54b7b744d9545.jar" />
+    </item>
+    <item
+        jar="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/libs/jcl104-over-slf4j-1.1.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="d7072b1641e9ffc989b1b52305746aff0ab38934">
+        <dex dex="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/build/intermediates/pre-dexed/debug/jcl104-over-slf4j-1.1.0-b6cdac177f78246d82ffbb22afee66defcc06371.jar" />
+    </item>
+    <item
+        jar="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/libs/slf4j-log4j12-1.1.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="34c9c35ffd3ded2e20b2d18c3fd66af7b9225acb">
+        <dex dex="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/build/intermediates/pre-dexed/debug/slf4j-log4j12-1.1.0-02578050f10b609f31e25b16f6910134c01920a5.jar" />
+    </item>
+    <item
+        jar="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/libs/jcifs-1.3.17.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="1a2f0e28cc9497fb4927ea2422605fb8023969b6">
+        <dex dex="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/build/intermediates/pre-dexed/debug/jcifs-1.3.17-840dfe362bf30418a5d5a6c78e54d09f4398deb5.jar" />
+    </item>
+    <item
+        jar="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/libs/commons-codec-1.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="fd32786786e2adb664d5ecc965da47629dca14ba">
+        <dex dex="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/build/intermediates/pre-dexed/debug/commons-codec-1.3-82ded7a171217ca5858bfbad7b8b0f94dde69028.jar" />
+    </item>
+    <item
+        jar="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/libs/log4j-1.2.8.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="3640dd71069d7986c9a14d333519216f4ca5c094">
+        <dex dex="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/build/intermediates/pre-dexed/debug/log4j-1.2.8-1984608fcea76829c01cd2f6040b7d60dcae9a08.jar" />
+    </item>
+    <item
+        jar="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/libs/commons-httpclient-3.1-beta1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="34552e20b1168b392c27aac4d80bf0102bac45ef">
+        <dex dex="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/build/intermediates/pre-dexed/debug/commons-httpclient-3.1-beta1-6f39a99ef0e60913cb46974156bf5341c17f0adb.jar" />
+    </item>
+    <item
+        jar="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/libs/jasypt-1.9.0.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="0857a1a55a81641c31b2a9b4b292120c1d4432bd">
+        <dex dex="/home/akiel/AndroidStudioProjects/Ucintlmv3/app/build/intermediates/pre-dexed/debug/jasypt-1.9.0-a0fbaee1e4fa1225f6bd4a15fb6d998b0cc85c4d.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/main_of"
+    android:minHeight="49dip"
+    android:minWidth="49dip"
+    android:updatePeriodMillis="10000" >
+
+</appwidget-provider><!-- From: file:/home/akiel/AndroidStudioProjects/Ucintlmv3/app/src/main/res/xml/widget_provider.xml -->
