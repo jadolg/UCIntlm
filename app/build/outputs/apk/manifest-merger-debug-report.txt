@@ -26,29 +26,27 @@ ADDED from AndroidManifest.xml:10:2
 	android:name
 		ADDED from AndroidManifest.xml:10:19
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from AndroidManifest.xml:12:5
+ADDED from AndroidManifest.xml:11:5
 	android:name
-		ADDED from AndroidManifest.xml:12:22
+		ADDED from AndroidManifest.xml:11:22
 uses-sdk
-ADDED from AndroidManifest.xml:14:5
+ADDED from AndroidManifest.xml:13:5
 	android:targetSdkVersion
-		ADDED from AndroidManifest.xml:16:9
-		INJECTED from AndroidManifest.xml:0:0
-		INJECTED from AndroidManifest.xml:0:0
-	android:minSdkVersion
 		ADDED from AndroidManifest.xml:15:9
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
+	android:minSdkVersion
+		ADDED from AndroidManifest.xml:14:9
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
 application
-ADDED from AndroidManifest.xml:18:5
+ADDED from AndroidManifest.xml:17:5
 	android:label
-		ADDED from AndroidManifest.xml:22:9
-	android:allowBackup
-		ADDED from AndroidManifest.xml:20:9
-	android:icon
 		ADDED from AndroidManifest.xml:21:9
-	android:theme
-		ADDED from AndroidManifest.xml:23:9
+	android:allowBackup
+		ADDED from AndroidManifest.xml:19:9
+	android:icon
+		ADDED from AndroidManifest.xml:20:9
 	android:description
 		ADDED from AndroidManifest.xml:24:9
 activity#uci.ucintlm.ui.Antlm

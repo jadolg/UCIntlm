@@ -1,10 +1,11 @@
 package uci.ucintlm.service;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
 import java.io.IOException;
 
 import uci.ucintlm.ntlm.core.HttpForwarder;
-import android.os.AsyncTask;
-import android.util.Log;
 
 public class ServerTask extends AsyncTask {
 	/*

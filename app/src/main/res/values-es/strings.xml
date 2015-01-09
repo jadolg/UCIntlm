@@ -25,6 +25,6 @@
 	<string name="started">UCIntlm iniciado</string>
 	<string name="stopped">UCIntlm detenido</string>
 	<string name="nodata">No existen suficientes datos para autenticarse.</string>
-	<string name="Bypass">Bypass</string>
+	<string name="Bypass">Omitir proxy para</string>
     <string name="BypassHint">127.0.0.1, localhost</string>
 </resources>

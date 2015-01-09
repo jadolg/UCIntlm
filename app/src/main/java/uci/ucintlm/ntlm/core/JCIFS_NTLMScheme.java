@@ -1,7 +1,5 @@
 package uci.ucintlm.ntlm.core;
 
-import java.io.IOException;
-
 import org.apache.commons.httpclient.Credentials;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.NTCredentials;
@@ -10,6 +8,8 @@ import org.apache.commons.httpclient.auth.AuthScheme;
 import org.apache.commons.httpclient.auth.AuthenticationException;
 import org.apache.commons.httpclient.auth.InvalidCredentialsException;
 import org.apache.commons.httpclient.auth.MalformedChallengeException;
+
+import java.io.IOException;
 
  
 

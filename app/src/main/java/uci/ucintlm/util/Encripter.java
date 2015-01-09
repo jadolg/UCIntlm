@@ -1,9 +1,9 @@
 package uci.ucintlm.util;
 
-import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
-
 import android.annotation.SuppressLint;
 import android.os.Build;
+
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
 /* *
  * Esta clase es utilizada para cifrar la contraseña para guardarla.

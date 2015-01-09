@@ -1,8 +1,5 @@
 package uci.ucintlm.ui;
 
-import uci.ucintlm.R;
-import uci.ucintlm.service.NTLMProxyService;
-import uci.ucintlm.util.Encripter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -20,17 +17,21 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.ToggleButton;
 
+import uci.ucintlm.R;
+import uci.ucintlm.service.NTLMProxyService;
+import uci.ucintlm.util.Encripter;
+
 public class Antlm extends Activity {
 
-	ToggleButton startButton;
-	EditText user;
-	EditText pass;
-	EditText domain;
-	EditText server;
-	EditText inputport;
-	EditText outputport;
-//	EditText bypass;
-	public static String notif1, notif2, notif3;
+	private ToggleButton startButton;
+    private EditText user;
+    private EditText pass;
+    private EditText domain;
+    private EditText server;
+    private EditText inputport;
+    private EditText outputport;
+	private EditText bypass;
+	public static String notif1, notif2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class Antlm extends Activity {
 		server = (EditText) findViewById(R.id.eserver);
 		inputport = (EditText) findViewById(R.id.einputport);
 		outputport = (EditText) findViewById(R.id.eoutputport);
-//		bypass = (EditText) findViewById(R.id.ebypass);
+		bypass = (EditText) findViewById(R.id.ebypass);
 		
 		notif1 = getString(R.string.notif1);
 		notif2 = getString(R.string.notif2);
@@ -58,7 +59,7 @@ public class Antlm extends Activity {
 
 	}
 
-	public void loadConf() {
+	private void loadConf() {
 		SharedPreferences settings = getSharedPreferences("UCIntlm.conf",
 				Context.MODE_PRIVATE);
 
@@ -68,7 +69,7 @@ public class Antlm extends Activity {
 		server.setText(settings.getString("server", "10.0.0.1"));
 		inputport.setText(settings.getString("inputport", "8080"));
 		outputport.setText(settings.getString("outputport", "8080"));
-//		bypass.setText(settings.getString("bypass", "127.0.0.1, localhost, *.uci.cu, 10.*.*.*"));
+		bypass.setText(settings.getString("bypass", "127.0.0.1, localhost"));
 		if (user.getText().toString().equals("")) {
 			user.requestFocus();
 		} else {
@@ -76,7 +77,7 @@ public class Antlm extends Activity {
 		}
 	}
 
-	public void saveConf() {
+	private void saveConf() {
 		SharedPreferences settings = getSharedPreferences("UCIntlm.conf",
 				Context.MODE_PRIVATE);
 		Editor editor = settings.edit();
@@ -87,7 +88,7 @@ public class Antlm extends Activity {
 		editor.putString("server", server.getText().toString());
 		editor.putString("inputport", inputport.getText().toString());
 		editor.putString("outputport", outputport.getText().toString());
-//		editor.putString("bypass", bypass.getText().toString());
+		editor.putString("bypass", bypass.getText().toString());
 		editor.commit();
 	}
 
@@ -116,7 +117,7 @@ public class Antlm extends Activity {
 		server.setEnabled(false);
 		inputport.setEnabled(false);
 		outputport.setEnabled(false);
-//		bypass.setEnabled(false);
+		bypass.setEnabled(false);
 		startButton.setChecked(true);
 		startButton.setText(getString(R.string.stop));
 	}
@@ -129,7 +130,7 @@ public class Antlm extends Activity {
 		server.setEnabled(true);
 		inputport.setEnabled(true);
 		outputport.setEnabled(true);
-//		bypass.setEnabled(true);
+		bypass.setEnabled(true);
 		startButton.setChecked(false);
 		startButton.setText(getString(R.string.run));
 	}
@@ -156,7 +157,7 @@ public class Antlm extends Activity {
 			intent.putExtra("server", server.getText().toString());
 			intent.putExtra("inputport", inputport.getText().toString());
 			intent.putExtra("outputport", outputport.getText().toString());
-//			intent.putExtra("bypass", bypass.getText().toString());
+			intent.putExtra("bypass", bypass.getText().toString());
 			
 			startService(intent);
 			UCIntlmWidget.actualizarWidget(this.getApplicationContext(),

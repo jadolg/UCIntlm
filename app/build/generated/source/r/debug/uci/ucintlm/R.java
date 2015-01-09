@@ -15,44 +15,40 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int power_off=0x7f020001;
-        public static final int power_on=0x7f020002;
-        public static final int widget_on1=0x7f020003;
+        public static final int box=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int power_off=0x7f020002;
+        public static final int power_on=0x7f020003;
+        public static final int widget_on1=0x7f020004;
     }
     public static final class id {
         public static final int AllLayout=0x7f090009;
         public static final int DomainTextView=0x7f090011;
-        public static final int ImageView01=0x7f090017;
         public static final int InputPortTextView=0x7f09000d;
         public static final int OutputPortTextView=0x7f090010;
         public static final int PasswordTextView=0x7f090004;
         public static final int ServerTextView=0x7f09000e;
-        public static final int TextView01=0x7f090018;
+        public static final int TextView01=0x7f090012;
         public static final int UserTextView=0x7f090002;
         public static final int ascroll=0x7f090008;
         public static final int button1=0x7f090006;
-        public static final int cara_droidBackground=0x7f090012;
         public static final int checkBox1=0x7f090007;
+        public static final int ebypass=0x7f090013;
         public static final int edomain=0x7f09000c;
         public static final int einputport=0x7f09000a;
         public static final int eoutputport=0x7f09000f;
         public static final int epass=0x7f090005;
         public static final int eserver=0x7f09000b;
         public static final int euser=0x7f090003;
-        public static final int layout1=0x7f090015;
-        public static final int on_offButton=0x7f090014;
+        public static final int layout1=0x7f090014;
         public static final int tLayout=0x7f090001;
-        public static final int texto=0x7f090013;
+        public static final int texto=0x7f090015;
         public static final int tscroll=0x7f090000;
-        public static final int widget_root=0x7f090016;
     }
     public static final class layout {
         public static final int activity_antlm=0x7f030000;
-        public static final int main=0x7f030001;
-        public static final int main_of=0x7f030002;
-        public static final int main_on=0x7f030003;
-        public static final int widget_initial_layout=0x7f030004;
+        public static final int main_of=0x7f030001;
+        public static final int main_on=0x7f030002;
     }
     public static final class menu {
         public static final int menu=0x7f080000;
@@ -98,8 +94,9 @@ public final class R {
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
-        public static final int gkgk=0x7f070002;
-        public static final int styleWidgetText=0x7f070003;
+        public static final int CustomDialogTheme=0x7f070002;
+        public static final int gkgk=0x7f070003;
+        public static final int styleWidgetText=0x7f070004;
     }
     public static final class xml {
         public static final int widget_provider=0x7f040000;

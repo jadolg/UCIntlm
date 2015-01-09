@@ -1,10 +1,9 @@
 package uci.ucintlm.service;
 
-import uci.ucintlm.R;
-import uci.ucintlm.ui.Antlm;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiConfiguration;
@@ -17,9 +16,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import uci.ucintlm.R;
+import uci.ucintlm.ui.Antlm;
+import uci.ucintlm.ui.UCIntlmWidget;
+
 public class NTLMProxyService extends Service {
 	/*
-	 * Este es el servicio que inicial el servidor
+	 * Este es el servicio que inicia el servidor
 	 * Permanece en el área de notificación
 	 * */
 	private String user = "";
@@ -116,7 +119,7 @@ public class NTLMProxyService extends Service {
             Object[] proxyPropertiesCtorParams = new Object[3];
             proxyPropertiesCtorParams[0] = "127.0.0.1";
             proxyPropertiesCtorParams[1] = outputport;
-            proxyPropertiesCtorParams[2] = null;
+            proxyPropertiesCtorParams[2] = bypass;
 
             //create a new object using the params
             Object proxySettings = proxyPropertiesCtor.newInstance(proxyPropertiesCtorParams);
@@ -186,6 +189,9 @@ public class NTLMProxyService extends Service {
 	public void onDestroy() {
 		s.stop();
         unsetWifiProxySettings();
+        UCIntlmWidget.actualizarWidget(this.getApplicationContext(),
+                AppWidgetManager.getInstance(this.getApplicationContext()),
+                "off");
 		super.onDestroy();
 	}
 
@@ -197,7 +203,7 @@ public class NTLMProxyService extends Service {
 		server = intent.getStringExtra("server");
 		inputport = Integer.valueOf(intent.getStringExtra("inputport"));
 		outputport = Integer.valueOf(intent.getStringExtra("outputport"));
-//		bypass = intent.getStringExtra("bypass");
+		bypass = intent.getStringExtra("bypass");
 		setWifiProxySettings();
 		Log.i(getClass().getName(), "Starting for user " + user+"@"+domain+", server "+server+", input port "+String.valueOf(inputport)+", output port"+String.valueOf(outputport)+" and bypass string: "+bypass);
 		s = new ServerTask(user, pass, domain, server, inputport, outputport,bypass);
@@ -222,6 +228,7 @@ public class NTLMProxyService extends Service {
 		note.setLatestEventInfo(this, "UCIntlm", getApplicationContext().getString(R.string.notif2) + " " + user, pi);
 
 		note.flags |= Notification.FLAG_NO_CLEAR;
+
 
 		startForeground(1337, note);
 	}

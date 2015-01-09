@@ -1,9 +1,9 @@
 package uci.ucintlm.ntlm.core;
 
+import org.apache.commons.httpclient.methods.RequestEntity;
+
 import java.io.IOException;
 import java.io.OutputStream;
-
-import org.apache.commons.httpclient.methods.RequestEntity;
 
 public class StreamingRequestEntity
         implements RequestEntity {

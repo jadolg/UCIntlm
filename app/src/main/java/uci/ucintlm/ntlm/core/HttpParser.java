@@ -1,13 +1,13 @@
 package uci.ucintlm.ntlm.core;
 
+import org.apache.commons.httpclient.Header;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
-
-import org.apache.commons.httpclient.Header;
 /* *
  * Esta clase analiza las peticiones http
  * */

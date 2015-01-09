@@ -1,8 +1,5 @@
 package uci.ucintlm.ui;
 
-import uci.ucintlm.R;
-import uci.ucintlm.service.NTLMProxyService;
-import uci.ucintlm.util.Encripter;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.app.PendingIntent;
@@ -12,9 +9,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.Toast;
+
+import uci.ucintlm.R;
+import uci.ucintlm.service.NTLMProxyService;
+import uci.ucintlm.util.Encripter;
 
 public class UCIntlmWidget extends AppWidgetProvider {
 	private static final String ACTION_cambiarlayout = "a_cambiarlayout";

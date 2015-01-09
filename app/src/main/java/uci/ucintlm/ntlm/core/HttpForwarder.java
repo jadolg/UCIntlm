@@ -1,19 +1,6 @@
 package uci.ucintlm.ntlm.core;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.regex.Pattern;
+import android.util.Log;
 
 import org.apache.commons.httpclient.ConnectMethod;
 import org.apache.commons.httpclient.Header;
@@ -30,7 +17,19 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.HeadMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 
-import android.util.Log;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.regex.Pattern;
 
 /* *
  * Esta es la clase principal del servidor.
@@ -98,20 +97,27 @@ public class HttpForwarder {
 		}
 	}
 
-	public synchronized void terminate() throws IOException {
-		for (Socket a : listaSockets) {
-            try {
-                a.close();
-            } catch (Exception ex){
-                Log.e("Error closing socket",ex.getMessage());
+	public void terminate() throws IOException {
+        /*
+        *TODO: look for doc about java.util.ConcurrentModificationException
+        *this method crashes sometimes trying to access the list
+        * */
+        try {
+            for (Socket a : listaSockets) {
+                try {
+                    a.close();
+                } catch (Exception ex) {
+                    Log.e("Error closing socket", ex.getMessage());
+                }
+
             }
 
-		}
+            listaSockets.clear();
 
-		listaSockets.clear();
-
-		this.close();
-		this.running = false;
+        } finally {
+            this.close();
+            this.running = false;
+        }
 	}
 
 	public void close() throws IOException {
@@ -172,7 +178,7 @@ public class HttpForwarder {
 	class Handler implements Runnable {
 
 		Socket localSocket;
-		ByteBuffer buffer = ByteBuffer.allocate(8192);
+		//ByteBuffer buffer = ByteBuffer.allocate(8192);
 
 		public Handler(Socket localSocket) {
 			this.localSocket = localSocket;
