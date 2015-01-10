@@ -22,12 +22,21 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal" >
 
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:background="@drawable/ucintlm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+
             <TextView
                 android:id="@+id/UserTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
+                android:layout_below="@+id/imageView"
                 android:text="@string/user"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -72,7 +81,8 @@
                 android:layout_below="@+id/epass"
                 android:layout_marginTop="10dp"
                 android:onClick="clickRun"
-                android:text="@string/run" />
+                android:text="@string/run"
+                />
 
             <CheckBox
                 android:id="@+id/checkBox1"
@@ -195,5 +205,6 @@
             </ScrollView>
         </RelativeLayout>
     </ScrollView>
+
 
 </RelativeLayout><!-- From: file:/home/akiel/AndroidStudioProjects/Ucintlmv3/app/src/main/res/layout/activity_antlm.xml -->

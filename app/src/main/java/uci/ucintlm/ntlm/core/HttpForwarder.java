@@ -25,6 +25,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Arrays;
+import java.util.ConcurrentModificationException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -114,7 +115,10 @@ public class HttpForwarder {
 
             listaSockets.clear();
 
-        } finally {
+        } catch (java.util.ConcurrentModificationException concurrentModificationException){
+//            Log.e(HttpForwarder.class.getName(),concurrentModificationException.getMessage());
+        }
+        finally {
             this.close();
             this.running = false;
         }
