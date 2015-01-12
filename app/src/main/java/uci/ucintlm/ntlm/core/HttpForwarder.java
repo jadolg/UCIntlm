@@ -25,12 +25,13 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Arrays;
-import java.util.ConcurrentModificationException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Pattern;
+
+import uci.ucintlm.ntlm.core.ntlmv2.JCIFS_NTLMScheme;
 
 /* *
  * Esta es la clase principal del servidor.

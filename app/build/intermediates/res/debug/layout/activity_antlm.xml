@@ -10,11 +10,21 @@
     android:background="@drawable/box"
     tools:context=".Antlm" >
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:background="@drawable/ucintlm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
     <ScrollView
         android:id="@+id/tscroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/imageView">
 
         <RelativeLayout
             android:id="@+id/tLayout"
@@ -23,20 +33,13 @@
             android:gravity="center_horizontal" >
 
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:background="@drawable/ucintlm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
 
 
             <TextView
                 android:id="@+id/UserTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/imageView"
+
                 android:text="@string/user"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 

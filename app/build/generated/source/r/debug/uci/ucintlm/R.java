@@ -29,7 +29,7 @@ public final class R {
         public static final int OutputPortTextView=0x7f090011;
         public static final int PasswordTextView=0x7f090005;
         public static final int ServerTextView=0x7f09000f;
-        public static final int TextView01=0x7f090013;
+        public static final int BypassTextView =0x7f090013;
         public static final int UserTextView=0x7f090003;
         public static final int ascroll=0x7f090009;
         public static final int button1=0x7f090007;
@@ -41,11 +41,11 @@ public final class R {
         public static final int epass=0x7f090006;
         public static final int eserver=0x7f09000c;
         public static final int euser=0x7f090004;
-        public static final int imageView=0x7f090002;
+        public static final int imageView=0x7f090000;
         public static final int layout1=0x7f090015;
-        public static final int tLayout=0x7f090001;
+        public static final int tLayout=0x7f090002;
         public static final int texto=0x7f090016;
-        public static final int tscroll=0x7f090000;
+        public static final int tscroll=0x7f090001;
     }
     public static final class layout {
         public static final int activity_antlm=0x7f030000;

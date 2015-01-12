@@ -122,7 +122,7 @@ public class UCIntlmWidget extends AppWidgetProvider {
 				server = settings.getString("server", "");
 				inputport = settings.getString("inputport", "");
 				outputport = settings.getString("outputport", "");
-//				bypass = settings.getString("bypass", "");
+				bypass = settings.getString("bypass", "");
 
 				
 				serviceIntent.putExtra("user", user);
@@ -131,7 +131,7 @@ public class UCIntlmWidget extends AppWidgetProvider {
 				serviceIntent.putExtra("server", server);
 				serviceIntent.putExtra("inputport", inputport);
 				serviceIntent.putExtra("outputport", outputport);
-//				serviceIntent.putExtra("bypass", bypass);
+				serviceIntent.putExtra("bypass", bypass);
 				if (isMyServiceRunning(context)) {
 					new_status = "off";
 

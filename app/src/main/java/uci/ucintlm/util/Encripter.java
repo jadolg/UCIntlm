@@ -7,12 +7,12 @@ import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
 /* *
  * Esta clase es utilizada para cifrar la contraseña para guardarla.
- * Utiliza como contraseña el número serial del dispositivo.
  * */
 
 @SuppressLint("NewApi")
 public class Encripter {
-	static private String encriptPass = Build.SERIAL;
+	static private String encriptPass = Build.FINGERPRINT;
+    /*cambia a FINGERPRINT porque SERIAL no esta disponible en la API 8*/
 
 	public static String encrypt(String cadena) {
 		StandardPBEStringEncryptor s = new StandardPBEStringEncryptor();
