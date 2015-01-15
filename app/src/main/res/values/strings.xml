@@ -8,6 +8,7 @@
     <string name="blank"></string>
     <string name="Username">Username</string>
     <string name="Password">Password</string>
+    <string name="ShowPassword">Show password</string>
     <string name="Domain">Domain</string>
     <string name="Server">Server</string>
     <string name="InputPort">Input Port</string>
@@ -26,6 +27,6 @@
     <string name="stopped">UCIntlm stopped</string>
     <string name="nodata">There is no enough data to authenticate</string>
     <string name="Bypass">Bypass proxy for</string>
-    <string name="BypassHint">127.0.0.1, localhost</string>
+    <string name="BypassHint">127.0.0.1, localhost, *.uci.cu</string>
 
 </resources>

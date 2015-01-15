@@ -8,7 +8,7 @@
     <eat-comment/>
     <string name="AdvancedOptions">Advanced Options</string>
     <string name="Bypass">Bypass proxy for</string>
-    <string name="BypassHint">127.0.0.1, localhost</string>
+    <string name="BypassHint">127.0.0.1, localhost, *.uci.cu</string>
     <string name="Domain">Domain</string>
     <string name="InputPort">Input Port</string>
     <string name="OutputPort">Output Port</string>

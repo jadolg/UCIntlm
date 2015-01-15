@@ -10,11 +10,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import uci.ucintlm.R;
@@ -69,7 +71,7 @@ public class Antlm extends Activity {
 		server.setText(settings.getString("server", "10.0.0.1"));
 		inputport.setText(settings.getString("inputport", "8080"));
 		outputport.setText(settings.getString("outputport", "8080"));
-		bypass.setText(settings.getString("bypass", "127.0.0.1, localhost"));
+		bypass.setText(settings.getString("bypass", "127.0.0.1, localhost, *.uci.cu"));
 		if (user.getText().toString().equals("")) {
 			user.requestFocus();
 		} else {
@@ -183,4 +185,15 @@ public class Antlm extends Activity {
 			scroll.setVisibility(View.GONE);
 		}
 	}
+
+    public void clickShowPassword(View arg0) {
+        //mostrar la contraseña
+        CheckBox ch = (CheckBox) findViewById(R.id.checkBoxPass);
+        if (ch.isChecked()){
+            pass.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        } else {
+            pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        }
+        pass.setSelection(pass.length());
+    }
 }

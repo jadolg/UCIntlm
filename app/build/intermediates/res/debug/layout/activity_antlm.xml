@@ -12,11 +12,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:background="@drawable/ucintlm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ucintlm"
+        android:contentDescription="@string/app_name" />
 
 
     <ScrollView
@@ -33,8 +34,6 @@
             android:gravity="center_horizontal" >
 
 
-
-
             <TextView
                 android:id="@+id/UserTextView"
                 android:layout_width="wrap_content"
@@ -48,6 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/UserTextView"
+                android:layout_alignStart="@+id/UserTextView"
                 android:layout_below="@+id/UserTextView"
                 android:ems="10"
                 android:hint="@string/Username"
@@ -60,6 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/euser"
+                android:layout_alignStart="@+id/euser"
                 android:layout_below="@+id/euser"
                 android:text="@string/Password"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -71,9 +72,23 @@
                 android:layout_alignLeft="@+id/euser"
                 android:layout_alignRight="@+id/euser"
                 android:layout_below="@+id/PasswordTextView"
+                android:layout_alignStart="@+id/euser"
+                android:layout_alignEnd="@+id/euser"
                 android:ems="10"
                 android:hint="@string/passwordHint"
                 android:inputType="textPassword" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ShowPassword"
+                android:id="@+id/checkBoxPass"
+                android:layout_below="@+id/epass"
+                android:layout_alignLeft="@+id/euser"
+                android:layout_alignRight="@+id/euser"
+                android:layout_alignStart="@+id/euser"
+                android:layout_alignEnd="@+id/euser"
+                android:onClick="clickShowPassword" />
 
             <ToggleButton
                 android:id="@+id/button1"
@@ -81,7 +96,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/euser"
                 android:layout_alignRight="@+id/euser"
-                android:layout_below="@+id/epass"
+                android:layout_alignStart="@+id/euser"
+                android:layout_alignEnd="@+id/euser"
+                android:layout_below="@+id/checkBoxPass"
                 android:layout_marginTop="10dp"
                 android:onClick="clickRun"
                 android:text="@string/run"
@@ -92,6 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/epass"
+                android:layout_alignStart="@+id/epass"
                 android:layout_below="@+id/button1"
                 android:onClick="clickAdv"
                 android:text="@string/AdvancedOptions" />
@@ -108,73 +126,14 @@
                 <RelativeLayout
                     android:id="@+id/AllLayout"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_horizontal" >
-
-                    <EditText
-                        android:id="@+id/einputport"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/eserver"
-                        android:layout_alignRight="@+id/edomain"
-                        android:layout_below="@+id/InputPortTextView"
-                        android:ems="10"
-                        android:hint="@string/portHint"
-                        android:inputType="numberSigned" >
-                    </EditText>
-
-                    <EditText
-                        android:id="@+id/eserver"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignRight="@+id/edomain"
-                        android:layout_below="@+id/ServerTextView"
-                        android:ems="10"
-                        android:hint="@string/serverHint" />
-
-                    <TextView
-                        android:id="@+id/InputPortTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/ServerTextView"
-                        android:layout_below="@+id/eserver"
-                        android:text="@string/InputPort"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                    <EditText
-                        android:id="@+id/eoutputport"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignRight="@+id/edomain"
-                        android:layout_below="@+id/OutputPortTextView"
-                        android:ems="10"
-                        android:hint="@string/portHint"
-                        android:inputType="numberSigned" />
-
-                    <TextView
-                        android:id="@+id/OutputPortTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/InputPortTextView"
-                        android:layout_below="@+id/einputport"
-                        android:text="@string/OutputPort"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     <TextView
                         android:id="@+id/DomainTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/Domain"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-                    <TextView
-                        android:id="@+id/ServerTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/DomainTextView"
-                        android:layout_below="@+id/DomainTextView"
-                        android:layout_marginTop="42dp"
-                        android:text="@string/Server"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     <EditText
@@ -186,10 +145,82 @@
                         android:hint="@string/domainHint" />
 
                     <TextView
-                        android:id="@+id/TextView01"
+                        android:id="@+id/ServerTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_alignLeft="@+id/DomainTextView"
+                        android:layout_alignStart="@+id/DomainTextView"
+                        android:layout_below="@+id/DomainTextView"
+                        android:layout_marginTop="42dp"
+                        android:text="@string/Server"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <EditText
+                        android:id="@+id/eserver"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/edomain"
+                        android:layout_alignRight="@+id/edomain"
+                        android:layout_alignStart="@+id/edomain"
+                        android:layout_alignEnd="@+id/edomain"
+                        android:layout_below="@+id/ServerTextView"
+                        android:ems="10"
+                        android:hint="@string/serverHint" />
+
+                    <TextView
+                        android:id="@+id/InputPortTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/DomainTextView"
+                        android:layout_alignStart="@+id/DomainTextView"
+                        android:layout_below="@+id/eserver"
+                        android:text="@string/InputPort"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <EditText
+                        android:id="@+id/einputport"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/edomain"
+                        android:layout_alignRight="@+id/edomain"
+                        android:layout_alignStart="@+id/edomain"
+                        android:layout_alignEnd="@+id/edomain"
+                        android:layout_below="@+id/InputPortTextView"
+                        android:ems="10"
+                        android:hint="@string/portHint"
+                        android:inputType="numberSigned" >
+                    </EditText>
+
+                    <TextView
+                        android:id="@+id/OutputPortTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/DomainTextView"
+                        android:layout_alignStart="@+id/DomainTextView"
+                        android:layout_below="@+id/einputport"
+                        android:text="@string/OutputPort"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <EditText
+                        android:id="@+id/eoutputport"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/edomain"
+                        android:layout_alignRight="@+id/edomain"
+                        android:layout_alignStart="@+id/edomain"
+                        android:layout_alignEnd="@+id/edomain"
+                        android:layout_below="@+id/OutputPortTextView"
+                        android:ems="10"
+                        android:hint="@string/portHint"
+                        android:inputType="numberSigned" />
+
+
+                    <TextView
+                        android:id="@+id/BypassTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/DomainTextView"
+                        android:layout_alignStart="@+id/DomainTextView"
                         android:layout_below="@+id/eoutputport"
                         android:text="@string/Bypass"
                         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -199,13 +230,18 @@
                         android:id="@+id/ebypass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_below="@+id/TextView01"
+                        android:layout_alignLeft="@+id/edomain"
+                        android:layout_alignRight="@+id/edomain"
+                        android:layout_alignStart="@+id/edomain"
+                        android:layout_alignEnd="@+id/edomain"
+                        android:layout_below="@+id/BypassTextView"
                         android:ems="10"
                         android:hint="@string/BypassHint"
                         />
                 </RelativeLayout>
             </ScrollView>
+
+
         </RelativeLayout>
     </ScrollView>
 
