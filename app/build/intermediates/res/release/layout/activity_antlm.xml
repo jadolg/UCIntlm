@@ -78,6 +78,18 @@
                 android:hint="@string/passwordHint"
                 android:inputType="textPassword" />
 
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ShowPassword"
+                android:id="@+id/checkBoxPass"
+                android:layout_below="@+id/epass"
+                android:layout_alignLeft="@+id/euser"
+                android:layout_alignRight="@+id/euser"
+                android:layout_alignStart="@+id/euser"
+                android:layout_alignEnd="@+id/euser"
+                android:onClick="clickShowPassword" />
+
             <ToggleButton
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
@@ -86,7 +98,7 @@
                 android:layout_alignRight="@+id/euser"
                 android:layout_alignStart="@+id/euser"
                 android:layout_alignEnd="@+id/euser"
-                android:layout_below="@+id/epass"
+                android:layout_below="@+id/checkBoxPass"
                 android:layout_marginTop="10dp"
                 android:onClick="clickRun"
                 android:text="@string/run"
@@ -228,6 +240,8 @@
                         />
                 </RelativeLayout>
             </ScrollView>
+
+
         </RelativeLayout>
     </ScrollView>
 

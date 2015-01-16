@@ -3,7 +3,7 @@
 
     <string name="app_name">UCIntlm</string>
     <string name="description">Proxy ntlm para Android</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Configuración</string>
     <string name="user">Usuario</string>
     <string name="blank"></string>
     <string name="Username">Nombre de usuario</string>

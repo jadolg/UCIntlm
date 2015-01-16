@@ -84,6 +84,7 @@ public class HttpForwarder {
 				new NTCredentials(user, pass, InetAddress.getLocalHost()
 						.getHostName(), domain));
 
+
 		this.noDelegateClient = new HttpClient(manager);
 	}
 
