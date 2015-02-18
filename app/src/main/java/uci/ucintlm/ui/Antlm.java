@@ -22,6 +22,7 @@ import android.widget.ToggleButton;
 import uci.ucintlm.R;
 import uci.ucintlm.service.NTLMProxyService;
 import uci.ucintlm.util.Encripter;
+import uci.ucintlm.util.ServiceUtils;
 
 public class Antlm extends Activity {
 
@@ -53,7 +54,7 @@ public class Antlm extends Activity {
 
 		loadConf();
 
-		if (isMyServiceRunning()) {
+		if (ServiceUtils.isMyServiceRunning(this)) {
 			disbleAll();
 		} else {
 			enableAll();
@@ -104,7 +105,7 @@ public class Antlm extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if (isMyServiceRunning()) {
+		if (ServiceUtils.isMyServiceRunning(this)) {
 			disbleAll();
 		} else {
 			enableAll();
@@ -137,22 +138,9 @@ public class Antlm extends Activity {
 		startButton.setText(getString(R.string.run));
 	}
 
-	private boolean isMyServiceRunning() {
-		ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-		for (RunningServiceInfo service : manager
-				.getRunningServices(Integer.MAX_VALUE)) {
-			if (NTLMProxyService.class.getName().equals(
-					service.service.getClassName())) {
-
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public void clickRun(View arg0) {
 		Intent intent = new Intent(this, NTLMProxyService.class);
-		if (!isMyServiceRunning()) {
+		if (!ServiceUtils.isMyServiceRunning(this)) {
 			intent.putExtra("user", user.getText().toString());
 			intent.putExtra("pass", pass.getText().toString());
 			intent.putExtra("domain", domain.getText().toString());

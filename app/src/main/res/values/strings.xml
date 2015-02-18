@@ -28,5 +28,8 @@
     <string name="nodata">There is no enough data to authenticate</string>
     <string name="Bypass">Bypass proxy for</string>
     <string name="BypassHint">127.0.0.1, localhost, *.uci.cu</string>
+    <string name="OnProxy">Configuring WiFi for Proxy use</string>
+    <string name="OnNoProxy">Configuring WiFi for No Proxy use</string>
+    <string name="Connected">Connected to WiFi</string>
 
 </resources>

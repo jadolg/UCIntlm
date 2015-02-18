@@ -11,8 +11,7 @@ import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
 @SuppressLint("NewApi")
 public class Encripter {
-	static private String encriptPass = Build.FINGERPRINT;
-    /*cambia a FINGERPRINT porque SERIAL no esta disponible en la API 8*/
+	static private String encriptPass = Build.SERIAL;
 
 	public static String encrypt(String cadena) {
 		StandardPBEStringEncryptor s = new StandardPBEStringEncryptor();

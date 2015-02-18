@@ -15,26 +15,14 @@ import android.widget.Toast;
 import uci.ucintlm.R;
 import uci.ucintlm.service.NTLMProxyService;
 import uci.ucintlm.util.Encripter;
+import uci.ucintlm.util.ServiceUtils;
 
 public class UCIntlmWidget extends AppWidgetProvider {
 	private static final String ACTION_cambiarlayout = "a_cambiarlayout";
 
-	private static boolean isMyServiceRunning(Context context) {
-		ActivityManager manager = (ActivityManager) context
-				.getSystemService(Context.ACTIVITY_SERVICE);
-		for (RunningServiceInfo service : manager
-				.getRunningServices(Integer.MAX_VALUE)) {
-			if (NTLMProxyService.class.getName().equals(
-					service.service.getClassName())) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	@Override
 	public void onEnabled(Context context) {
-		if (isMyServiceRunning(context)) {
+		if (ServiceUtils.isMyServiceRunning(context)) {
 			actualizarWidget(context, AppWidgetManager.getInstance(context),
 					"on");
 		} else {
@@ -48,7 +36,7 @@ public class UCIntlmWidget extends AppWidgetProvider {
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 			int[] appWidgetIds) {
 		String mensaje = "";
-		if (isMyServiceRunning(context)) {
+		if (ServiceUtils.isMyServiceRunning(context)) {
 			mensaje = "on";
 		} else {
 			mensaje = "off";
@@ -132,7 +120,7 @@ public class UCIntlmWidget extends AppWidgetProvider {
 				serviceIntent.putExtra("inputport", inputport);
 				serviceIntent.putExtra("outputport", outputport);
 				serviceIntent.putExtra("bypass", bypass);
-				if (isMyServiceRunning(context)) {
+				if (ServiceUtils.isMyServiceRunning(context)) {
 					new_status = "off";
 
 					context.stopService(serviceIntent);// Deteniendo el servicio
