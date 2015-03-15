@@ -1,16 +1,17 @@
-package uci.ucintlm.util;
+package uci.ucintlm.service.service;
 
 import android.app.ActivityManager;
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
-
-import uci.ucintlm.service.NTLMProxyService;
 
 /**
  * Created by akiel on 2/18/15.
+ * This class provides service util functions
  */
 public final class ServiceUtils {
+    /*
+    * this function returns the state of the service
+    * */
     public static boolean isMyServiceRunning(Context context) {
         ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager

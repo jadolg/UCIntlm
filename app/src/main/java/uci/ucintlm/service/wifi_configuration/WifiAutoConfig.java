@@ -1,4 +1,4 @@
-package uci.ucintlm.service;
+package uci.ucintlm.service.wifi_configuration;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,8 +17,7 @@ import java.net.URI;
 import java.util.List;
 
 import uci.ucintlm.R;
-import uci.ucintlm.util.ServiceUtils;
-import uci.ucintlm.util.WifiSettings;
+import uci.ucintlm.service.service.ServiceUtils;
 
 /**
  * Esta clase configura automáticamente la wifi a la que nos conectemos si el servicio está activo

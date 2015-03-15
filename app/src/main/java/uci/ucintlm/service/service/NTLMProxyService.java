@@ -1,4 +1,4 @@
-package uci.ucintlm.service;
+package uci.ucintlm.service.service;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -9,9 +9,9 @@ import android.os.IBinder;
 import android.util.Log;
 
 import uci.ucintlm.R;
-import uci.ucintlm.ui.Antlm;
-import uci.ucintlm.ui.UCIntlmWidget;
-import uci.ucintlm.util.WifiSettings;
+import uci.ucintlm.service.wifi_configuration.WifiSettings;
+import uci.ucintlm.ui.ui.Antlm;
+import uci.ucintlm.ui.ui.UCIntlmWidget;
 
 
 public class NTLMProxyService extends Service {

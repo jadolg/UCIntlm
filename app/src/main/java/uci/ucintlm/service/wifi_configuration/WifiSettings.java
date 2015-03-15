@@ -1,4 +1,4 @@
-package uci.ucintlm.util;
+package uci.ucintlm.service.wifi_configuration;
 
 import android.content.Context;
 import android.net.wifi.WifiConfiguration;

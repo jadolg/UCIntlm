@@ -1,4 +1,4 @@
-package uci.ucintlm.ntlm.core.ntlmv2;
+package uci.ucintlm.ntlm.ntlmv2;
 
 import org.apache.commons.httpclient.Credentials;
 import org.apache.commons.httpclient.HttpMethod;

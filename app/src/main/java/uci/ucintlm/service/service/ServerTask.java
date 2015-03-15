@@ -1,4 +1,4 @@
-package uci.ucintlm.service;
+package uci.ucintlm.service.service;
 
 import android.os.AsyncTask;
 import android.util.Log;

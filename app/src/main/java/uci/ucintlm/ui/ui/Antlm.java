@@ -1,9 +1,7 @@
-package uci.ucintlm.ui;
+package uci.ucintlm.ui.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.ActivityManager.RunningServiceInfo;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
@@ -16,13 +14,12 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import uci.ucintlm.R;
-import uci.ucintlm.service.NTLMProxyService;
-import uci.ucintlm.util.Encripter;
-import uci.ucintlm.util.ServiceUtils;
+import uci.ucintlm.service.service.NTLMProxyService;
+import uci.ucintlm.service.service.ServiceUtils;
+import uci.ucintlm.ui.Security.Encripter;
 
 public class Antlm extends Activity {
 

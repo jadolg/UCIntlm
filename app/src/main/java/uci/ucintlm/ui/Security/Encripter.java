@@ -1,4 +1,4 @@
-package uci.ucintlm.util;
+package uci.ucintlm.ui.Security;
 
 import android.annotation.SuppressLint;
 import android.os.Build;

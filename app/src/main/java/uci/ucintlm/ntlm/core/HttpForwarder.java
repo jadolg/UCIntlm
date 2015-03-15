@@ -31,7 +31,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Pattern;
 
-import uci.ucintlm.ntlm.core.ntlmv2.JCIFS_NTLMScheme;
+import uci.ucintlm.ntlm.ntlmv2.JCIFS_NTLMScheme;
 
 /* *
  * Esta es la clase principal del servidor.
@@ -74,7 +74,7 @@ public class HttpForwarder {
 		}
 
 		MultiThreadedHttpConnectionManager manager = new MultiThreadedHttpConnectionManager();
-		manager.getParams().setDefaultMaxConnectionsPerHost(5);
+		manager.getParams().setDefaultMaxConnectionsPerHost(10);
 		this.delegateClient = new HttpClient(manager);
 		this.delegateClient.getHostConfiguration().setProxy(addr, inport);
 
