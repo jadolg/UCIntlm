@@ -15,10 +15,12 @@ import java.util.List;
  */
 public final class WifiSettings {
 
-    /**********Este código se utiliza para configurar la WiFi del sistema************/
+    /**
+     * *******Este código se utiliza para configurar la WiFi del sistema***********
+     */
 
     public static Object getField(Object obj, String name)
-            throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
+            throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         Field f = obj.getClass().getField(name);
         Object out = f.get(obj);
         return out;
@@ -34,27 +36,25 @@ public final class WifiSettings {
     }
 
     public static void setEnumField(Object obj, String value, String name)
-            throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
+            throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         Field f = obj.getClass().getField(name);
         f.set(obj, Enum.valueOf((Class<Enum>) f.getType(), value));
     }
 
-    public static void setProxySettings(String assign , WifiConfiguration wifiConf)
-            throws SecurityException, IllegalArgumentException, NoSuchFieldException, IllegalAccessException{
+    public static void setProxySettings(String assign, WifiConfiguration wifiConf)
+            throws SecurityException, IllegalArgumentException, NoSuchFieldException, IllegalAccessException {
         setEnumField(wifiConf, assign, "proxySettings");
     }
 
 
-    private static WifiConfiguration GetCurrentWifiConfiguration(WifiManager manager)
-    {
+    private static WifiConfiguration GetCurrentWifiConfiguration(WifiManager manager) {
         if (!manager.isWifiEnabled())
             return null;
 
         List<WifiConfiguration> configurationList = manager.getConfiguredNetworks();
         WifiConfiguration configuration = null;
         int cur = manager.getConnectionInfo().getNetworkId();
-        for (int i = 0; i < configurationList.size(); ++i)
-        {
+        for (int i = 0; i < configurationList.size(); ++i) {
             WifiConfiguration wifiConfiguration = configurationList.get(i);
             if (wifiConfiguration.networkId == cur)
                 configuration = wifiConfiguration;
@@ -63,21 +63,19 @@ public final class WifiSettings {
         return configuration;
     }
 
-    public static void setWifiProxySettings(Context context, int outputport, String bypass)
-    {
+    public static void setWifiProxySettings(Context context, int outputport, String bypass) {
         //get the current wifi configuration
         WifiManager manager;
-        manager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+        manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiConfiguration config = GetCurrentWifiConfiguration(manager);
 
-        if(null == config)
+        if (null == config)
             return;
 
-        try
-        {
+        try {
             //get the link properties from the wifi configuration
             Object linkProperties = getField(config, "linkProperties");
-            if(null == linkProperties)
+            if (null == linkProperties)
                 return;
 
             //get the setHttpProxy method for LinkProperties
@@ -116,23 +114,20 @@ public final class WifiSettings {
             manager.updateNetwork(config);
             manager.disconnect();
             manager.reconnect();
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
         }
     }
-    public static void unsetWifiProxySettings(Context context)
-    {
-        WifiManager manager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+
+    public static void unsetWifiProxySettings(Context context) {
+        WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiConfiguration config = GetCurrentWifiConfiguration(manager);
-        if(null == config)
+        if (null == config)
             return;
 
-        try
-        {
+        try {
             //get the link properties from the wifi configuration
             Object linkProperties = getField(config, "linkProperties");
-            if(null == linkProperties)
+            if (null == linkProperties)
                 return;
 
             //get the setHttpProxy method for LinkProperties
@@ -154,9 +149,7 @@ public final class WifiSettings {
             manager.updateNetwork(config);
             manager.disconnect();
             manager.reconnect();
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
         }
     }
 /******************************************************************************/

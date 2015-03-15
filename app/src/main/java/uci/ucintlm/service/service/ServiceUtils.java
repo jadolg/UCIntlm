@@ -18,11 +18,11 @@ public final class ServiceUtils {
                 .getRunningServices(Integer.MAX_VALUE)) {
             if (NTLMProxyService.class.getName().equals(
                     service.service.getClassName())) {
-                Log.i(ServiceUtils.class.getName(),"Service running");
+                Log.i(ServiceUtils.class.getName(), "Service running");
                 return true;
             }
         }
-        Log.i(ServiceUtils.class.getName(),"Service not running");
+        Log.i(ServiceUtils.class.getName(), "Service not running");
         return false;
     }
 }

@@ -11,22 +11,22 @@ import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
 @SuppressLint("NewApi")
 public class Encripter {
-	static private String encriptPass = Build.SERIAL;
+    static private String encriptPass = Build.SERIAL;
 
-	public static String encrypt(String cadena) {
-		StandardPBEStringEncryptor s = new StandardPBEStringEncryptor();
-		s.setPassword(encriptPass);
-		return s.encrypt(cadena);
-	}
+    public static String encrypt(String cadena) {
+        StandardPBEStringEncryptor s = new StandardPBEStringEncryptor();
+        s.setPassword(encriptPass);
+        return s.encrypt(cadena);
+    }
 
-	public static String decrypt(String cadena) {
-		StandardPBEStringEncryptor s = new StandardPBEStringEncryptor();
-		s.setPassword(encriptPass);
-		String devuelve = "";
-		try {
-			devuelve = s.decrypt(cadena);
-		} catch (Exception e) {
-		}
-		return devuelve;
-	}
+    public static String decrypt(String cadena) {
+        StandardPBEStringEncryptor s = new StandardPBEStringEncryptor();
+        s.setPassword(encriptPass);
+        String devuelve = "";
+        try {
+            devuelve = s.decrypt(cadena);
+        } catch (Exception e) {
+        }
+        return devuelve;
+    }
 }

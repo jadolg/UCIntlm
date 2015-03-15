@@ -20,13 +20,13 @@
     <string name="stop">arrêter</string>
     <string name="notif1">UCIntlm est en cours d\'exécution…</string>
     <string name="notif2">UCIntlm est en cours d\'exécution pour l\'utilisateur: </string>
-	<string name="notif3">UCIntlm a été arrêté…</string>
-	<string name="AdvancedOptions">Options Avancées</string>
-	<string name="passwordHint">Mot de passe</string>
-	<string name="started">UCIntlm initié</string>
-	<string name="stopped">UCIntlm arrêté</string>
-	<string name="nodata">Les données ne sont pas suffisantes pour s\'authentifier.</string>
-	<string name="Bypass">Sauter proxy pour</string>
+    <string name="notif3">UCIntlm a été arrêté…</string>
+    <string name="AdvancedOptions">Options Avancées</string>
+    <string name="passwordHint">Mot de passe</string>
+    <string name="started">UCIntlm initié</string>
+    <string name="stopped">UCIntlm arrêté</string>
+    <string name="nodata">Les données ne sont pas suffisantes pour s\'authentifier.</string>
+    <string name="Bypass">Sauter proxy pour</string>
     <string name="BypassHint">127.0.0.1, localhost, *.uci.cu</string>
 
     <string name="OnProxy">WiFi Configuration pour une utilisation Proxy</string>

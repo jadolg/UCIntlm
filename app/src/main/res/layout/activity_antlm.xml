@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/box"
     android:gravity="center_horizontal"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/box"
-    tools:context=".Antlm" >
+    tools:context=".Antlm">
 
     <ImageView
         android:id="@+id/imageView"
@@ -16,22 +16,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ucintlm"
-        android:contentDescription="@string/app_name" />
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ucintlm" />
 
 
     <ScrollView
         android:id="@+id/tscroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/imageView">
+        android:layout_below="@+id/imageView"
+        android:gravity="center_horizontal">
 
         <RelativeLayout
             android:id="@+id/tLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
+            android:gravity="center_horizontal">
 
 
             <TextView
@@ -69,40 +69,39 @@
                 android:id="@+id/epass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/euser"
                 android:layout_alignLeft="@+id/euser"
                 android:layout_alignRight="@+id/euser"
-                android:layout_below="@+id/PasswordTextView"
                 android:layout_alignStart="@+id/euser"
-                android:layout_alignEnd="@+id/euser"
+                android:layout_below="@+id/PasswordTextView"
                 android:ems="10"
                 android:hint="@string/passwordHint"
                 android:inputType="textPassword" />
 
             <CheckBox
+                android:id="@+id/checkBoxPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ShowPassword"
-                android:id="@+id/checkBoxPass"
-                android:layout_below="@+id/epass"
+                android:layout_alignEnd="@+id/euser"
                 android:layout_alignLeft="@+id/euser"
                 android:layout_alignRight="@+id/euser"
                 android:layout_alignStart="@+id/euser"
-                android:layout_alignEnd="@+id/euser"
-                android:onClick="clickShowPassword" />
+                android:layout_below="@+id/epass"
+                android:onClick="clickShowPassword"
+                android:text="@string/ShowPassword" />
 
             <ToggleButton
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/euser"
                 android:layout_alignLeft="@+id/euser"
                 android:layout_alignRight="@+id/euser"
                 android:layout_alignStart="@+id/euser"
-                android:layout_alignEnd="@+id/euser"
                 android:layout_below="@+id/checkBoxPass"
                 android:layout_marginTop="10dp"
                 android:onClick="clickRun"
-                android:text="@string/run"
-                />
+                android:text="@string/run" />
 
             <CheckBox
                 android:id="@+id/checkBox1"
@@ -121,13 +120,13 @@
                 android:layout_below="@+id/checkBox1"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:visibility="gone" >
+                android:visibility="gone">
 
                 <RelativeLayout
                     android:id="@+id/AllLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal" >
+                    android:gravity="center_horizontal">
 
                     <TextView
                         android:id="@+id/DomainTextView"
@@ -159,10 +158,10 @@
                         android:id="@+id/eserver"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/edomain"
                         android:layout_alignLeft="@+id/edomain"
                         android:layout_alignRight="@+id/edomain"
                         android:layout_alignStart="@+id/edomain"
-                        android:layout_alignEnd="@+id/edomain"
                         android:layout_below="@+id/ServerTextView"
                         android:ems="10"
                         android:hint="@string/serverHint" />
@@ -181,15 +180,14 @@
                         android:id="@+id/einputport"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/edomain"
                         android:layout_alignLeft="@+id/edomain"
                         android:layout_alignRight="@+id/edomain"
                         android:layout_alignStart="@+id/edomain"
-                        android:layout_alignEnd="@+id/edomain"
                         android:layout_below="@+id/InputPortTextView"
                         android:ems="10"
                         android:hint="@string/portHint"
-                        android:inputType="numberSigned" >
-                    </EditText>
+                        android:inputType="numberSigned"></EditText>
 
                     <TextView
                         android:id="@+id/OutputPortTextView"
@@ -205,10 +203,10 @@
                         android:id="@+id/eoutputport"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/edomain"
                         android:layout_alignLeft="@+id/edomain"
                         android:layout_alignRight="@+id/edomain"
                         android:layout_alignStart="@+id/edomain"
-                        android:layout_alignEnd="@+id/edomain"
                         android:layout_below="@+id/OutputPortTextView"
                         android:ems="10"
                         android:hint="@string/portHint"
@@ -223,21 +221,19 @@
                         android:layout_alignStart="@+id/DomainTextView"
                         android:layout_below="@+id/eoutputport"
                         android:text="@string/Bypass"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     <EditText
                         android:id="@+id/ebypass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/edomain"
                         android:layout_alignLeft="@+id/edomain"
                         android:layout_alignRight="@+id/edomain"
                         android:layout_alignStart="@+id/edomain"
-                        android:layout_alignEnd="@+id/edomain"
                         android:layout_below="@+id/BypassTextView"
                         android:ems="10"
-                        android:hint="@string/BypassHint"
-                        />
+                        android:hint="@string/BypassHint" />
                 </RelativeLayout>
             </ScrollView>
 

@@ -23,7 +23,9 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+
     <style name="gkgk">asas</style>
+
     <style name="styleWidgetText" parent="android:Widget.TextView">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">4pt</item>

@@ -16,156 +16,156 @@ import uci.ucintlm.service.service.ServiceUtils;
 import uci.ucintlm.ui.Security.Encripter;
 
 public class UCIntlmWidget extends AppWidgetProvider {
-	private static final String ACTION_cambiarlayout = "a_cambiarlayout";
+    private static final String ACTION_cambiarlayout = "a_cambiarlayout";
 
-	@Override
-	public void onEnabled(Context context) {
-		if (ServiceUtils.isMyServiceRunning(context)) {
-			actualizarWidget(context, AppWidgetManager.getInstance(context),
-					"on");
-		} else {
-			actualizarWidget(context, AppWidgetManager.getInstance(context),
-					"off");
-		}
-		super.onEnabled(context);
-	}
+    public static void actualizarWidget(Context context,
+                                        AppWidgetManager appWidgetManager, String value) {
 
-	@Override
-	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
-			int[] appWidgetIds) {
-		String mensaje = "";
-		if (ServiceUtils.isMyServiceRunning(context)) {
-			mensaje = "on";
-		} else {
-			mensaje = "off";
-		}
-		actualizarWidget(context, appWidgetManager, mensaje);
-	}
+        RemoteViews remoteViews;
 
-	public static void actualizarWidget(Context context,
-			AppWidgetManager appWidgetManager, String value) {
+        ComponentName thisWidget;
 
-		RemoteViews remoteViews;
+        int lay_id = 0;
 
-		ComponentName thisWidget;
+        // Asignamos el layout a la variable lay_id segun el parametro recibido
+        // por value
+        if (value.equals("on")) {
+            // ON
+            lay_id = R.layout.main_on;
+        }
 
-		int lay_id = 0;
+        if (value.equals("off")) {
+            // off
+            lay_id = R.layout.main_of;
 
-		// Asignamos el layout a la variable lay_id segun el parametro recibido
-		// por value
-		if (value.equals("on")) {
-			// ON
-			lay_id = R.layout.main_on;
-		}
+        }
+        // Vamos a acceder a la vista y cambiar el layout segun lay_id
+        remoteViews = new RemoteViews(context.getPackageName(), lay_id);
+        // identifica a nuestro widget
+        thisWidget = new ComponentName(context, UCIntlmWidget.class);
 
-		if (value.equals("off")) {
-			// off
-			lay_id = R.layout.main_of;
+        // Creamos un intent a nuestra propia clase
+        Intent intent = new Intent(context, UCIntlmWidget.class);
+        // seleccionamos la accion ACTION_cambiarlayout
+        intent.setAction(ACTION_cambiarlayout);
 
-		}
-		// Vamos a acceder a la vista y cambiar el layout segun lay_id
-		remoteViews = new RemoteViews(context.getPackageName(), lay_id);
-		// identifica a nuestro widget
-		thisWidget = new ComponentName(context, UCIntlmWidget.class);
-
-		// Creamos un intent a nuestra propia clase
-		Intent intent = new Intent(context, UCIntlmWidget.class);
-		// seleccionamos la accion ACTION_cambiarlayout
-		intent.setAction(ACTION_cambiarlayout);
-
-		PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0,
-				intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0,
+                intent, 0);
 
 		/*
-		 * Equivalente a setOnClickListener de un boton comun lo asocio con el
+         * Equivalente a setOnClickListener de un boton comun lo asocio con el
 		 * layout1 ya que al tocar este se ejecutara la accion y con
 		 * pendingIntent
 		 */
 
-		remoteViews.setOnClickPendingIntent(R.id.layout1, pendingIntent);
+        remoteViews.setOnClickPendingIntent(R.id.layout1, pendingIntent);
 
-		// actualizamos el widget
-		appWidgetManager.updateAppWidget(thisWidget, remoteViews);
-	}
+        // actualizamos el widget
+        appWidgetManager.updateAppWidget(thisWidget, remoteViews);
+    }
 
-	@Override
-	public void onReceive(Context context, Intent intent) {
-		// Controlamos que la accion recibida sea la nuestra
-		if (intent.getAction().equals(ACTION_cambiarlayout)) {
-			String new_status = "";
-			if (loggedOnce(context)) {
-				Intent serviceIntent = new Intent(context,
-						NTLMProxyService.class);// Proxy
+    @Override
+    public void onEnabled(Context context) {
+        if (ServiceUtils.isMyServiceRunning(context)) {
+            actualizarWidget(context, AppWidgetManager.getInstance(context),
+                    "on");
+        } else {
+            actualizarWidget(context, AppWidgetManager.getInstance(context),
+                    "off");
+        }
+        super.onEnabled(context);
+    }
 
-				SharedPreferences settings = context.getSharedPreferences(
-						"UCIntlm.conf", Context.MODE_PRIVATE);
+    @Override
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+                         int[] appWidgetIds) {
+        String mensaje = "";
+        if (ServiceUtils.isMyServiceRunning(context)) {
+            mensaje = "on";
+        } else {
+            mensaje = "off";
+        }
+        actualizarWidget(context, appWidgetManager, mensaje);
+    }
 
-				String user, pass, domain, server, inputport, outputport, bypass;
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        // Controlamos que la accion recibida sea la nuestra
+        if (intent.getAction().equals(ACTION_cambiarlayout)) {
+            String new_status = "";
+            if (loggedOnce(context)) {
+                Intent serviceIntent = new Intent(context,
+                        NTLMProxyService.class);// Proxy
 
-				user = settings.getString("user", "");
-				pass = Encripter.decrypt(settings.getString("password", ""));
-				domain = settings.getString("domain", "");
-				server = settings.getString("server", "");
-				inputport = settings.getString("inputport", "");
-				outputport = settings.getString("outputport", "");
-				bypass = settings.getString("bypass", "");
+                SharedPreferences settings = context.getSharedPreferences(
+                        "UCIntlm.conf", Context.MODE_PRIVATE);
 
-				
-				serviceIntent.putExtra("user", user);
-				serviceIntent.putExtra("pass", pass);
-				serviceIntent.putExtra("domain", domain);
-				serviceIntent.putExtra("server", server);
-				serviceIntent.putExtra("inputport", inputport);
-				serviceIntent.putExtra("outputport", outputport);
-				serviceIntent.putExtra("bypass", bypass);
-				if (ServiceUtils.isMyServiceRunning(context)) {
-					new_status = "off";
+                String user, pass, domain, server, inputport, outputport, bypass;
 
-					context.stopService(serviceIntent);// Deteniendo el servicio
-														// del proxy
-					Toast.makeText(context, context.getString(R.string.notif3),
-							Toast.LENGTH_SHORT).show();
-				} else {
-					context.startService(serviceIntent);// Se inicia el proxy
-					new_status = "on";
+                user = settings.getString("user", "");
+                pass = Encripter.decrypt(settings.getString("password", ""));
+                domain = settings.getString("domain", "");
+                server = settings.getString("server", "");
+                inputport = settings.getString("inputport", "");
+                outputport = settings.getString("outputport", "");
+                bypass = settings.getString("bypass", "");
 
-					Toast.makeText(context, context.getString(R.string.notif1),
-							Toast.LENGTH_SHORT).show();
-					Toast.makeText(context,
-							context.getString(R.string.notif2) + user,
-							Toast.LENGTH_LONG).show();
 
-				}
-				// Actualizamos el estado del widget.
-				AppWidgetManager widgetManager = AppWidgetManager
-						.getInstance(context);
-				actualizarWidget(context, widgetManager, new_status);
-			} else
-				Toast.makeText(context, context.getString(R.string.nodata),
-						Toast.LENGTH_SHORT).show();
-		}
+                serviceIntent.putExtra("user", user);
+                serviceIntent.putExtra("pass", pass);
+                serviceIntent.putExtra("domain", domain);
+                serviceIntent.putExtra("server", server);
+                serviceIntent.putExtra("inputport", inputport);
+                serviceIntent.putExtra("outputport", outputport);
+                serviceIntent.putExtra("bypass", bypass);
+                if (ServiceUtils.isMyServiceRunning(context)) {
+                    new_status = "off";
 
-		super.onReceive(context, intent);
-	}
+                    context.stopService(serviceIntent);// Deteniendo el servicio
+                    // del proxy
+                    Toast.makeText(context, context.getString(R.string.notif3),
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    context.startService(serviceIntent);// Se inicia el proxy
+                    new_status = "on";
 
-	public boolean loggedOnce(Context context) {
-		SharedPreferences settings = context.getSharedPreferences(
-				"UCIntlm.conf", Context.MODE_PRIVATE);
-		String user, pass, domain, server, inputport, outputport;
+                    Toast.makeText(context, context.getString(R.string.notif1),
+                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,
+                            context.getString(R.string.notif2) + user,
+                            Toast.LENGTH_LONG).show();
 
-		user = settings.getString("user", "");
-		pass = Encripter.decrypt(settings.getString("password", ""));
-		domain = settings.getString("domain", "");
-		server = settings.getString("server", "");
-		inputport = settings.getString("inputport", "");
-		outputport = settings.getString("outputport", "");
+                }
+                // Actualizamos el estado del widget.
+                AppWidgetManager widgetManager = AppWidgetManager
+                        .getInstance(context);
+                actualizarWidget(context, widgetManager, new_status);
+            } else
+                Toast.makeText(context, context.getString(R.string.nodata),
+                        Toast.LENGTH_SHORT).show();
+        }
 
-		if (!user.equals("") && !pass.equals("") && !domain.equals("")
-				&& !server.equals("") && !inputport.equals("")
-				&& !outputport.equals(""))
-			return true;
-		else
-			return false;
-	}
+        super.onReceive(context, intent);
+    }
+
+    public boolean loggedOnce(Context context) {
+        SharedPreferences settings = context.getSharedPreferences(
+                "UCIntlm.conf", Context.MODE_PRIVATE);
+        String user, pass, domain, server, inputport, outputport;
+
+        user = settings.getString("user", "");
+        pass = Encripter.decrypt(settings.getString("password", ""));
+        domain = settings.getString("domain", "");
+        server = settings.getString("server", "");
+        inputport = settings.getString("inputport", "");
+        outputport = settings.getString("outputport", "");
+
+        if (!user.equals("") && !pass.equals("") && !domain.equals("")
+                && !server.equals("") && !inputport.equals("")
+                && !outputport.equals(""))
+            return true;
+        else
+            return false;
+    }
 
 }

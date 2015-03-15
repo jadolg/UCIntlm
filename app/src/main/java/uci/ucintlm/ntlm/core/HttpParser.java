@@ -27,6 +27,11 @@ public class HttpParser extends InputStream {
     String contentType;
     Header[] headers;
 
+    public HttpParser(InputStream is) {
+        this.is = is;
+
+    }
+
     public int read()
             throws IOException {
         if (this.bodyIndex < this.index) {
@@ -45,13 +50,8 @@ public class HttpParser extends InputStream {
         return this.is.read(b, off, len);
     }
 
-    public HttpParser(InputStream is) {
-        this.is = is;
-        
-    }
-
     public boolean parse() throws IOException, ParseException {
-        
+
         this.index += this.is.read(this.buffer, this.index, this.buffer.length - this.index);
         String line = new String(this.buffer);
 
