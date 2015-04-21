@@ -7,8 +7,8 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="60dip"
-        android:layout_height="60dip"
+        android:layout_width="52dp"
+        android:layout_height="53dp"
         android:layout_gravity="center_horizontal|center"
         android:background="@drawable/power_on"></LinearLayout>
 
@@ -19,6 +19,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center"
         android:layout_weight="2"
-        android:text="@string/started" />
+        android:text="@string/started"
+        android:textSize="12dip"
+        android:textAlignment="center"
+        android:gravity="center"
+        />
 
 </LinearLayout>

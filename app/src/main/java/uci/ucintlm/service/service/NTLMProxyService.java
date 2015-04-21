@@ -61,7 +61,7 @@ public class NTLMProxyService extends Service {
         s.execute();
         notifyit();
 
-        return START_NOT_STICKY;
+        return START_STICKY;
     }
 
     @SuppressWarnings("deprecation")

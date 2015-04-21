@@ -151,17 +151,16 @@ public class UCIntlmWidget extends AppWidgetProvider {
     public boolean loggedOnce(Context context) {
         SharedPreferences settings = context.getSharedPreferences(
                 "UCIntlm.conf", Context.MODE_PRIVATE);
-        String user, pass, domain, server, inputport, outputport;
+        String domain, server, inputport, outputport;
 
-        user = settings.getString("user", "");
-        pass = Encripter.decrypt(settings.getString("password", ""));
         domain = settings.getString("domain", "");
         server = settings.getString("server", "");
         inputport = settings.getString("inputport", "");
         outputport = settings.getString("outputport", "");
 
-        if (!user.equals("") && !pass.equals("") && !domain.equals("")
-                && !server.equals("") && !inputport.equals("")
+        if (!domain.equals("")
+                && !server.equals("")
+                && !inputport.equals("")
                 && !outputport.equals(""))
             return true;
         else

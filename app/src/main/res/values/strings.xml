@@ -25,7 +25,7 @@
     <string name="passwordHint">Password</string>
     <string name="started">UCIntlm started</string>
     <string name="stopped">UCIntlm stopped</string>
-    <string name="nodata">There is no enough data to authenticate</string>
+    <string name="nodata">There is no enough data to start the service</string>
     <string name="Bypass">Bypass proxy for</string>
     <string name="BypassHint">127.0.0.1, localhost, *.uci.cu</string>
     <string name="OnProxy">Configuring WiFi for Proxy use</string>

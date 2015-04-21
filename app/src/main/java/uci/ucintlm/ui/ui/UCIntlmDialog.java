@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ScrollView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import uci.ucintlm.R;
@@ -52,7 +53,7 @@ public class UCIntlmDialog extends Activity {
         loadConf();
 
         if (ServiceUtils.isMyServiceRunning(this)) {
-            disbleAll();
+            disableAll();
         } else {
             enableAll();
         }
@@ -94,23 +95,27 @@ public class UCIntlmDialog extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //no menu needed at this time
         // Inflate the menu; this adds items to the action bar if it is present.
-//		 getMenuInflater().inflate(R.menu.menu, menu);
+        // getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     protected void onResume() {
+        //used to configure the form when it is restarted
+        //if closed by the system
         super.onResume();
         if (ServiceUtils.isMyServiceRunning(this)) {
-            disbleAll();
+            disableAll();
         } else {
             enableAll();
         }
     }
 
     @SuppressLint("NewApi")
-    private void disbleAll() {
+    private void disableAll() {
+        //set the form to disable all fields and change the button to stop the service
         user.setEnabled(false);
         pass.setEnabled(false);
         domain.setEnabled(false);
@@ -124,6 +129,7 @@ public class UCIntlmDialog extends Activity {
 
     @SuppressLint("NewApi")
     private void enableAll() {
+        //set the form to introduce data and start the service
         user.setEnabled(true);
         pass.setEnabled(true);
         domain.setEnabled(true);
@@ -136,7 +142,21 @@ public class UCIntlmDialog extends Activity {
     }
 
     public void clickRun(View arg0) {
+        //run or stop the service
         Intent intent = new Intent(this, NTLMProxyService.class);
+
+        if (domain.getText().toString().equals("")
+                || server.getText().toString().equals("")
+                || inputport.getText().toString().equals("")
+                || outputport.getText().toString().equals("")) {
+
+            Toast.makeText(getApplicationContext(), getApplicationContext().getString(R.string.nodata),
+                    Toast.LENGTH_SHORT).show();
+            startButton.setChecked(false);
+            return;
+
+        }
+
         if (!ServiceUtils.isMyServiceRunning(this)) {
             intent.putExtra("user", user.getText().toString());
             intent.putExtra("pass", pass.getText().toString());
@@ -150,7 +170,7 @@ public class UCIntlmDialog extends Activity {
             UCIntlmWidget.actualizarWidget(this.getApplicationContext(),
                     AppWidgetManager.getInstance(this.getApplicationContext()),
                     "on");
-            disbleAll();
+            disableAll();
             saveConf();
         } else {
             stopService(intent);
@@ -159,9 +179,11 @@ public class UCIntlmDialog extends Activity {
                     AppWidgetManager.getInstance(this.getApplicationContext()),
                     "off");
         }
+
     }
 
     public void clickAdv(View arg0) {
+        //show advanced options
         ScrollView scroll = (ScrollView) findViewById(R.id.ascroll);
         CheckBox ch = (CheckBox) findViewById(R.id.checkBox1);
         if (ch.isChecked()) {
@@ -172,7 +194,7 @@ public class UCIntlmDialog extends Activity {
     }
 
     public void clickShowPassword(View arg0) {
-        //mostrar la contraseña
+        //show password
         CheckBox ch = (CheckBox) findViewById(R.id.checkBoxPass);
         if (ch.isChecked()) {
             pass.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
