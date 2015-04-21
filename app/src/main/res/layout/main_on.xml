@@ -19,10 +19,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center"
         android:layout_weight="2"
-        android:text="@string/started"
-        android:textSize="12dip"
-        android:textAlignment="center"
         android:gravity="center"
-        />
+        android:text="@string/started"
+        android:textAlignment="center"
+        android:textSize="12dip" />
 
 </LinearLayout>

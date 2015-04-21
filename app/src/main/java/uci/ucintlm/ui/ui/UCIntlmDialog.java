@@ -179,7 +179,6 @@ public class UCIntlmDialog extends Activity {
                     AppWidgetManager.getInstance(this.getApplicationContext()),
                     "off");
         }
-
     }
 
     public void clickAdv(View arg0) {

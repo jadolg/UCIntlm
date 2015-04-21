@@ -67,7 +67,7 @@ public class NTLMProxyService extends Service {
     @SuppressWarnings("deprecation")
     public void notifyit() {
         /*
-		 * Este método asegura que el servicio permanece en el área de notificación
+         * Este método asegura que el servicio permanece en el área de notificación
 		 * */
         Notification note = new Notification(R.drawable.ic_launcher, getApplicationContext().getString(R.string.notif1), System.currentTimeMillis());
         Intent i = new Intent(this, UCIntlmDialog.class);
