@@ -187,7 +187,7 @@
                         android:layout_below="@+id/InputPortTextView"
                         android:ems="10"
                         android:hint="@string/portHint"
-                        android:inputType="numberSigned"></EditText>
+                        android:inputType="numberSigned"/>
 
                     <TextView
                         android:id="@+id/OutputPortTextView"

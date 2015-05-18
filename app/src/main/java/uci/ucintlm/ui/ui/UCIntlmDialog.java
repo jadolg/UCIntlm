@@ -20,6 +20,7 @@ import android.widget.ToggleButton;
 import uci.ucintlm.R;
 import uci.ucintlm.service.service.NTLMProxyService;
 import uci.ucintlm.service.service.ServiceUtils;
+import uci.ucintlm.service.wifi_configuration.WifiAutoConfig;
 import uci.ucintlm.ui.Security.Encripter;
 
 public class UCIntlmDialog extends Activity {

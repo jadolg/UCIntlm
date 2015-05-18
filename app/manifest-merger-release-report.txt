@@ -51,7 +51,7 @@ ADDED from AndroidManifest.xml:18:5
 		ADDED from AndroidManifest.xml:23:9
 	android:description
 		ADDED from AndroidManifest.xml:24:9
-activity#uci.ucintlm.ui.Antlm
+activity#uci.ucintlm.ui.ui.Antlm
 ADDED from AndroidManifest.xml:27:9
 	android:label
 		ADDED from AndroidManifest.xml:29:13
@@ -71,7 +71,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:35:17
 	android:name
 		ADDED from AndroidManifest.xml:35:27
-receiver#uci.ucintlm.ui.UCIntlmWidget
+receiver#uci.ucintlm.ui.ui.UCIntlmWidget
 ADDED from AndroidManifest.xml:40:9
 	android:label
 		ADDED from AndroidManifest.xml:43:13
@@ -91,7 +91,7 @@ ADDED from AndroidManifest.xml:48:13
 		ADDED from AndroidManifest.xml:50:17
 	android:name
 		ADDED from AndroidManifest.xml:49:17
-service#uci.ucintlm.service.NTLMProxyService
+service#uci.ucintlm.service.service.NTLMProxyService
 ADDED from AndroidManifest.xml:54:9
 	android:name
 		ADDED from AndroidManifest.xml:54:18

@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" >
-    
-    <corners android:radius="30dp" >
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="30dp">
 
     </corners>
 
-    <solid
-        android:color="@android:color/background_dark"
-     >
+    <solid android:color="@android:color/background_dark">
         <!--<gradient-->
-            <!--android:color="@android:color/background_dark"-->
-            <!--android:centerColor="#404040"-->
-            <!--/>-->
+        <!--android:color="@android:color/background_dark"-->
+        <!--android:centerColor="#404040"-->
+        <!--/>-->
 
     </solid>
     <stroke
-        android:color="#404040"
-        android:width="2dp">
-    </stroke> 
-    
+        android:width="2dp"
+        android:color="#404040"></stroke>
+
 </shape>
 <!-- From: file:/home/akiel/AndroidStudioProjects/Ucintlmv3/app/src/main/res/drawable-xhdpi/box.xml -->

@@ -5,8 +5,11 @@
     <string name="AdvancedOptions">Opciones Avanzadas</string>
     <string name="Bypass">Omitir proxy para</string>
     <string name="BypassHint">127.0.0.1, localhost, *.uci.cu</string>
+    <string name="Connected">Conectado a la WiFi</string>
     <string name="Domain">Dominio</string>
     <string name="InputPort">Puerto de entrada</string>
+    <string name="OnNoProxy">Cambiando WiFi a configuración sin Proxy</string>
+    <string name="OnProxy">Cambiando WiFi a configuración con Proxy</string>
     <string name="OutputPort">Puerto de salida</string>
     <string name="Password">Contraseña</string>
     <string name="Server">Servidor</string>

@@ -3,6 +3,6 @@
     android:initialLayout="@layout/main_of"
     android:minHeight="49dip"
     android:minWidth="49dip"
-    android:updatePeriodMillis="10000" >
+    android:updatePeriodMillis="10000">
 
 </appwidget-provider><!-- From: file:/home/akiel/AndroidStudioProjects/Ucintlmv3/app/src/main/res/xml/widget_provider.xml -->

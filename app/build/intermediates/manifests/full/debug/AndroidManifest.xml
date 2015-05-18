@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uci.ucintlm"
-    android:versionCode="13"
-    android:versionName="3.8" >
+    android:versionCode="17"
+    android:versionName="3.9.2" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -19,7 +19,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name="uci.ucintlm.ui.Antlm"
+            android:name="uci.ucintlm.ui.ui.UCIntlmDialog"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/CustomDialogTheme" >
@@ -31,7 +31,7 @@
         </activity>
 
         <receiver
-            android:name="uci.ucintlm.ui.UCIntlmWidget"
+            android:name="uci.ucintlm.ui.ui.UCIntlmWidget"
             android:icon="@drawable/widget_on1"
             android:label="UCIntlm switch" >
             <intent-filter>
@@ -42,13 +42,13 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_provider" />
         </receiver>
-        <receiver android:name="uci.ucintlm.service.WifiAutoConfig" >
+        <receiver android:name="uci.ucintlm.service.wifi_configuration.WifiAutoConfig" >
             <intent-filter android:priority="100" >
                 <action android:name="android.net.wifi.STATE_CHANGE" />
             </intent-filter>
         </receiver>
 
-        <service android:name="uci.ucintlm.service.NTLMProxyService" />
+        <service android:name="uci.ucintlm.service.service.NTLMProxyService" />
     </application>
 
 </manifest>

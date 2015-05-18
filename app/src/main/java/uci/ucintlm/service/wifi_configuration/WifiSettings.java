@@ -1,8 +1,11 @@
 package uci.ucintlm.service.wifi_configuration;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.util.Log;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -69,6 +72,7 @@ public final class WifiSettings {
         manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         WifiConfiguration config = GetCurrentWifiConfiguration(manager);
 
+
         if (null == config)
             return;
 
@@ -114,6 +118,7 @@ public final class WifiSettings {
             manager.updateNetwork(config);
             manager.disconnect();
             manager.reconnect();
+            Log.i("Proxy details after set", getUserProxy(context)[0]+":"+getUserProxy(context)[1]);
         } catch (Exception e) {
         }
     }
@@ -149,9 +154,91 @@ public final class WifiSettings {
             manager.updateNetwork(config);
             manager.disconnect();
             manager.reconnect();
+            Log.i("Proxy details after unset", getUserProxy(context)[0]+":"+getUserProxy(context)[1]);
         } catch (Exception e) {
         }
     }
+
+    private static boolean IsPreIcs(){
+        return  !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH);
+    }
+
+    public static String getProxyDetails(Context context) {
+        String proxyAddress = new String();
+        try {
+            if (IsPreIcs()) {
+                proxyAddress = android.net.Proxy.getHost(context);
+                if (proxyAddress == null || proxyAddress.equals("")) {
+                    return proxyAddress;
+                }
+                proxyAddress += ":" + android.net.Proxy.getPort(context);
+            } else {
+                proxyAddress = System.getProperty("http.proxyHost");
+                proxyAddress += ":" + System.getProperty("http.proxyPort");
+            }
+        } catch (Exception ex) {
+            //ignore
+        }
+        return proxyAddress;
+    }
+
+    public static String[] getUserProxy(Context context)
+    {
+        Method method = null;
+        try
+        {
+            method = ConnectivityManager.class.getMethod("getProxy");
+        }
+        catch (NoSuchMethodException e)
+        {
+            // Normal situation for pre-ICS devices
+            return null;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+
+        try
+        {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            Object pp = method.invoke(connectivityManager);
+            if (pp == null)
+                return null;
+
+            return getUserProxy(pp);
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
+
+    private static String[] getUserProxy(Object pp) throws Exception
+    {
+        String[] userProxy = new String[3];
+
+        String className = "android.net.ProxyProperties";
+        Class<?> c = Class.forName(className);
+        Method method;
+
+        method = c.getMethod("getHost");
+        userProxy[0] = (String) method.invoke(pp);
+
+        method = c.getMethod("getPort");
+        userProxy[1] = String.valueOf((Integer) method.invoke(pp));
+
+
+        method = c.getMethod("getExclusionList");
+        userProxy[2] = (String) method.invoke(pp);
+
+        if (userProxy[0] != null)
+            return userProxy;
+        else
+            return null;
+    }
 /******************************************************************************/
+
 
 }

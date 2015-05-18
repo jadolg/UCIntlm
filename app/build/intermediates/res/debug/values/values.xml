@@ -24,7 +24,7 @@
     <string name="blank"/>
     <string name="description">Android ntlm proxy</string>
     <string name="domainHint">uci.cu</string>
-    <string name="nodata">There is no enough data to authenticate</string>
+    <string name="nodata">There is no enough data to start the service</string>
     <string name="notif1">UCIntlm is running…</string>
     <string name="notif2">Running UCIntlm for user: </string>
     <string name="notif3">UCIntlm was stopped…</string>

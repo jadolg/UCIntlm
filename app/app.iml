@@ -92,6 +92,15 @@
     <orderEntry type="library" exported="" name="slf4j-api-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="log4j-1.2.8" level="project" />
     <orderEntry type="library" exported="" name="jcl104-over-slf4j-1.1.0" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/lib/junit-4.11.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
 
