@@ -103,5 +103,15 @@ ADDED from AndroidManifest.xml:54:17
 		ADDED from AndroidManifest.xml:54:25
 service#uci.ucintlm.service.service.NTLMProxyService
 ADDED from AndroidManifest.xml:58:9
+	android:label
+		ADDED from AndroidManifest.xml:62:13
+	android:icon
+		ADDED from AndroidManifest.xml:61:13
+	android:process
+		ADDED from AndroidManifest.xml:60:13
+	android:stopWithTask
+		ADDED from AndroidManifest.xml:64:13
 	android:name
-		ADDED from AndroidManifest.xml:58:18
+		ADDED from AndroidManifest.xml:59:13
+	android:launchMode
+		ADDED from AndroidManifest.xml:63:13

@@ -55,7 +55,15 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".service.service.NTLMProxyService"></service>
+        <service
+            android:name=".service.service.NTLMProxyService"
+            android:process=":UCIntlmService"
+            android:icon="@drawable/ic_launcher"
+            android:label="UCIntlmService"
+            android:launchMode="singleTop"
+            android:stopWithTask="false"
+            >
+        </service>
     </application>
 
 </manifest>

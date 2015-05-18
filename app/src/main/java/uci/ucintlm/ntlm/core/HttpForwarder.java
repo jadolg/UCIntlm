@@ -74,7 +74,7 @@ public class HttpForwarder {
         }
 
         MultiThreadedHttpConnectionManager manager = new MultiThreadedHttpConnectionManager();
-        manager.getParams().setDefaultMaxConnectionsPerHost(10);
+        manager.getParams().setDefaultMaxConnectionsPerHost(40);
         this.delegateClient = new HttpClient(manager);
         this.delegateClient.getHostConfiguration().setProxy(addr, inport);
 
