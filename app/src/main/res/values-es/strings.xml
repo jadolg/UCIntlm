@@ -31,4 +31,5 @@
     <string name="OnProxy">Cambiando WiFi a configuración con Proxy</string>
     <string name="OnNoProxy">Cambiando WiFi a configuración sin Proxy</string>
     <string name="Connected">Conectado a la WiFi</string>
+    <string name="GlobalProxy">Establecer como proxy global</string>
 </resources>

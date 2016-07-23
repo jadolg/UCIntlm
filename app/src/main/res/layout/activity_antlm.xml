@@ -127,9 +127,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal">
-
+                    <CheckBox
+                        android:id="@+id/glob_proxy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/GlobalProxy"
+                        />
                     <TextView
                         android:id="@+id/DomainTextView"
+                        android:layout_below="@+id/glob_proxy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/Domain"

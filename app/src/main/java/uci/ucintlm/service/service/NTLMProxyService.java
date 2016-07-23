@@ -30,6 +30,7 @@ public class NTLMProxyService extends Service {
     private int outputport = 8080;
     private String bypass = "";
     private ServerTask s;
+    private boolean set_global_proxy;
 
 
     @Override
@@ -40,8 +41,11 @@ public class NTLMProxyService extends Service {
     @Override
     public void onDestroy() {
         s.stop();
+        SharedPreferences settings = getSharedPreferences("UCIntlm.conf",
+                Context.MODE_PRIVATE);
+
         WifiSettings.unsetWifiProxySettings(this);
-//        unsetWifiProxySettings();
+
         UCIntlmWidget.actualizarWidget(this.getApplicationContext(),
                 AppWidgetManager.getInstance(this.getApplicationContext()),
                 "off");
@@ -50,6 +54,8 @@ public class NTLMProxyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        SharedPreferences settings = getSharedPreferences("UCIntlm.conf",
+                Context.MODE_PRIVATE);
         if (intent.getExtras() != null) {
             user = intent.getStringExtra("user");
             pass = intent.getStringExtra("pass");
@@ -57,11 +63,9 @@ public class NTLMProxyService extends Service {
             server = intent.getStringExtra("server");
             inputport = Integer.valueOf(intent.getStringExtra("inputport"));
             outputport = Integer.valueOf(intent.getStringExtra("outputport"));
+            set_global_proxy = intent.getBooleanExtra("set_global_proxy",true);
             bypass = intent.getStringExtra("bypass");
         } else {
-            SharedPreferences settings = getSharedPreferences("UCIntlm.conf",
-                    Context.MODE_PRIVATE);
-
             user = settings.getString("user", "");
             pass = Encripter.decrypt(settings.getString("password", ""));
             domain = settings.getString("domain", "uci.cu");
@@ -69,9 +73,14 @@ public class NTLMProxyService extends Service {
             inputport = Integer.valueOf(settings.getString("inputport", "8080"));
             outputport = Integer.valueOf(settings.getString("outputport", "8080"));
             bypass = settings.getString("bypass", "127.0.0.1, localhost, *.uci.cu");
+            set_global_proxy = settings.getBoolean("global_proxy", true);
         }
-        WifiSettings.setWifiProxySettings(this, outputport, bypass);
-//		setWifiProxySettings();
+
+        System.out.println("global_proxy: " + String.valueOf(set_global_proxy));
+        if (set_global_proxy) {
+            WifiSettings.setWifiProxySettings(this, outputport, bypass);
+        }
+
         Log.i(getClass().getName(), "Starting for user " + user + "@" + domain + ", server " + server + ", input port " + String.valueOf(inputport) + ", output port" + String.valueOf(outputport) + " and bypass string: " + bypass);
         s = new ServerTask(user, pass, domain, server, inputport, outputport, bypass);
         s.execute();

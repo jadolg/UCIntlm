@@ -34,6 +34,7 @@ public class UCIntlmDialog extends Activity {
     private EditText inputport;
     private EditText outputport;
     private EditText bypass;
+    private CheckBox global;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class UCIntlmDialog extends Activity {
         inputport = (EditText) findViewById(R.id.einputport);
         outputport = (EditText) findViewById(R.id.eoutputport);
         bypass = (EditText) findViewById(R.id.ebypass);
+        global = (CheckBox)findViewById(R.id.glob_proxy);
 
         notif1 = getString(R.string.notif1);
         notif2 = getString(R.string.notif2);
@@ -72,6 +74,7 @@ public class UCIntlmDialog extends Activity {
         inputport.setText(settings.getString("inputport", "8080"));
         outputport.setText(settings.getString("outputport", "8080"));
         bypass.setText(settings.getString("bypass", "127.0.0.1, localhost, *.uci.cu"));
+        global.setChecked(settings.getBoolean("global_proxy",true));
         if (user.getText().toString().equals("")) {
             user.requestFocus();
         } else {
@@ -91,6 +94,7 @@ public class UCIntlmDialog extends Activity {
         editor.putString("inputport", inputport.getText().toString());
         editor.putString("outputport", outputport.getText().toString());
         editor.putString("bypass", bypass.getText().toString());
+        editor.putBoolean("global_proxy",global.isChecked());
         editor.commit();
     }
 
@@ -124,6 +128,7 @@ public class UCIntlmDialog extends Activity {
         inputport.setEnabled(false);
         outputport.setEnabled(false);
         bypass.setEnabled(false);
+        global.setEnabled(false);
         startButton.setChecked(true);
         startButton.setText(getString(R.string.stop));
     }
@@ -138,6 +143,7 @@ public class UCIntlmDialog extends Activity {
         inputport.setEnabled(true);
         outputport.setEnabled(true);
         bypass.setEnabled(true);
+        global.setEnabled(true);
         startButton.setChecked(false);
         startButton.setText(getString(R.string.run));
     }
@@ -159,6 +165,7 @@ public class UCIntlmDialog extends Activity {
         }
 
         if (!ServiceUtils.isMyServiceRunning(this)) {
+            saveConf();
             intent.putExtra("user", user.getText().toString());
             intent.putExtra("pass", pass.getText().toString());
             intent.putExtra("domain", domain.getText().toString());
@@ -166,13 +173,14 @@ public class UCIntlmDialog extends Activity {
             intent.putExtra("inputport", inputport.getText().toString());
             intent.putExtra("outputport", outputport.getText().toString());
             intent.putExtra("bypass", bypass.getText().toString());
+            intent.putExtra("set_global_proxy", global.isChecked());
 
             startService(intent);
             UCIntlmWidget.actualizarWidget(this.getApplicationContext(),
                     AppWidgetManager.getInstance(this.getApplicationContext()),
                     "on");
             disableAll();
-            saveConf();
+
         } else {
             stopService(intent);
             enableAll();
